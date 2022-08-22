@@ -93,7 +93,7 @@ class _FromWidget extends StatefulWidget {
 class _FromWidgetState extends State<_FromWidget> {
   final _loginTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
-  String? errorText = null;
+  String? errorText;
 
 
   void _auth() {
@@ -101,6 +101,8 @@ class _FromWidgetState extends State<_FromWidget> {
     final password = _passwordTextController.text;
     if (login == 'admin' && password == 'admin') {
       errorText = null;
+
+      Navigator.of(context).pushReplacementNamed('/main_screen');
     } else {
       errorText = 'Не верный логин или пароль';
     }

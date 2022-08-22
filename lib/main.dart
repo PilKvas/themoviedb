@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:themoviedb/widgets/auth/auth_screen.dart';
+import 'package:themoviedb/widgets/main_screen/main_screen_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,11 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromRGBO(3, 37, 65, 1),
         ),
       ),
+      initialRoute: '/',
+      routes: {
+        '/auth': (_) => const AuthScreenWidget(),
+        '/main_screen': (_) => const MainScreenWidgetn(),
+      },
       home: const AuthScreenWidget(),
     );
   }
