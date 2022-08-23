@@ -91,10 +91,9 @@ class _FromWidget extends StatefulWidget {
 }
 
 class _FromWidgetState extends State<_FromWidget> {
-  final _loginTextController = TextEditingController();
-  final _passwordTextController = TextEditingController();
+  final _loginTextController = TextEditingController(text: 'admin');
+  final _passwordTextController = TextEditingController(text: 'admin');
   String? errorText;
-
 
   void _auth() {
     final login = _loginTextController.text;
