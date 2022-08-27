@@ -53,7 +53,7 @@ class _MainScreenWidgetnState extends State<MainScreenWidgetn> {
           ),
         ],
         onTap: onSelectedTab,
-      ), 
+      ),
     );
   }
 }

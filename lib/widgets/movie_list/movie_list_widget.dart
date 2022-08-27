@@ -85,7 +85,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
 
   final _searchController = TextEditingController();
   void _searchMovie() {
-      final query = _searchController.text;
+    final query = _searchController.text;
     if (query.isNotEmpty) {
       _filteredMovies = _movie.where((Movie movie) {
         return movie.title.toUpperCase().contains(query.toUpperCase());
@@ -93,7 +93,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
     } else {
       _filteredMovies = _movie;
     }
-    setState((){});
+    setState(() {});
   }
 
   @override
@@ -148,7 +148,8 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                               ),
                               Text(
                                 movie.title,
-                                style: const TextStyle(fontWeight: FontWeight.bold),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),

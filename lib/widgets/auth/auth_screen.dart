@@ -108,9 +108,7 @@ class _FromWidgetState extends State<_FromWidget> {
     setState(() {});
   }
 
-  void _resetPassword() {
-  
-  }
+  void _resetPassword() {}
 
   @override
   Widget build(BuildContext context) {
