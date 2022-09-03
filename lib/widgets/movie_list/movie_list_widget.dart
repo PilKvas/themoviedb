@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:themoviedb/images/app_images.dart';
 
 class Movie {
+  final int id;
   final String imageUrl;
   final String title;
   final String time;
   final String description;
 
   Movie({
+    required this.id,
     required this.imageUrl,
     required this.title,
     required this.time,
@@ -25,6 +27,7 @@ class MovieListWidget extends StatefulWidget {
 class _MovieListWidgetState extends State<MovieListWidget> {
   final _movie = [
     Movie(
+      id: 1,
       imageUrl: AppImages.moviePlaceholder,
       title: 'Death',
       time: 'April 7, 2021',
@@ -32,6 +35,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum mattis interdum. Praesent at ornare justo. Vestibulum non lectus id velit maximus elementum ac at risus. Sed sollicitudin non purus vitae ullamcorper. Nulla pellentesque tellus est, vel cursus massa porta vel.',
     ),
     Movie(
+      id: 2,
       imageUrl: AppImages.moviePlaceholder,
       title: 'Мстители',
       time: 'April 7, 2021',
@@ -39,6 +43,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum mattis interdum. Praesent at ornare justo. Vestibulum non lectus id velit maximus elementum ac at risus. Sed sollicitudin non purus vitae ullamcorper. Nulla pellentesque tellus est, vel cursus massa porta vel.',
     ),
     Movie(
+      id: 3,
       imageUrl: AppImages.moviePlaceholder,
       title: 'Выживший',
       time: 'April 7, 2021',
@@ -46,6 +51,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum mattis interdum. Praesent at ornare justo. Vestibulum non lectus id velit maximus elementum ac at risus. Sed sollicitudin non purus vitae ullamcorper. Nulla pellentesque tellus est, vel cursus massa porta vel.',
     ),
     Movie(
+      id: 4,
       imageUrl: AppImages.moviePlaceholder,
       title: 'Спирит',
       time: 'April 7, 2021',
@@ -53,6 +59,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum mattis interdum. Praesent at ornare justo. Vestibulum non lectus id velit maximus elementum ac at risus. Sed sollicitudin non purus vitae ullamcorper. Nulla pellentesque tellus est, vel cursus massa porta vel.',
     ),
     Movie(
+      id: 5,
       imageUrl: AppImages.moviePlaceholder,
       title: 'Семь жизней',
       time: 'April 7, 2021',
@@ -60,6 +67,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum mattis interdum. Praesent at ornare justo. Vestibulum non lectus id velit maximus elementum ac at risus. Sed sollicitudin non purus vitae ullamcorper. Nulla pellentesque tellus est, vel cursus massa porta vel.',
     ),
     Movie(
+      id: 6,
       imageUrl: AppImages.moviePlaceholder,
       title: 'Финал',
       time: 'April 7, 2021',
@@ -67,6 +75,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum mattis interdum. Praesent at ornare justo. Vestibulum non lectus id velit maximus elementum ac at risus. Sed sollicitudin non purus vitae ullamcorper. Nulla pellentesque tellus est, vel cursus massa porta vel.',
     ),
     Movie(
+      id: 7,
       imageUrl: AppImages.moviePlaceholder,
       title: 'Боец',
       time: 'April 7, 2021',
@@ -74,6 +83,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum mattis interdum. Praesent at ornare justo. Vestibulum non lectus id velit maximus elementum ac at risus. Sed sollicitudin non purus vitae ullamcorper. Nulla pellentesque tellus est, vel cursus massa porta vel.',
     ),
     Movie(
+      id: 8,
       imageUrl: AppImages.moviePlaceholder,
       title: 'Демоны',
       time: 'April 7, 2021',
@@ -101,6 +111,14 @@ class _MovieListWidgetState extends State<MovieListWidget> {
     super.initState();
     _filteredMovies = _movie;
     _searchController.addListener(_searchMovie);
+  }
+
+  void _onMovieTap(int index) {
+    final id = _movie[index].id;
+    Navigator.of(context).pushNamed(
+      '/main_screen/movie_details',
+      arguments: id,
+    );
   }
 
   @override
@@ -182,7 +200,9 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                   Material(
                     color: Colors.transparent,
                     child: InkWell(
-                        borderRadius: BorderRadius.circular(10), onTap: () {}),
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: () => _onMovieTap(index),
+                    ),
                   )
                 ],
               ),
