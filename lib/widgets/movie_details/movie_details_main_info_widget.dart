@@ -15,7 +15,6 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
         _SummeryWidget(),
         _OverviewWidget(),
         _CastWidget(),
-
       ],
     );
   }
@@ -278,7 +277,7 @@ class _ScoreWidget extends StatelessWidget {
         TextButton(
             onPressed: () {},
             child: Row(
-              children: const[
+              children: const [
                 Icon(Icons.play_arrow),
                 Text('Play Trailer'),
               ],

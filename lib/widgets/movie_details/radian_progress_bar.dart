@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-
 class RadialPercentWidget extends StatelessWidget {
   final Widget child;
   final double percent;
@@ -105,7 +104,7 @@ class MyPainter extends CustomPainter {
   }
 
   Rect calculateArcRect(Size size) {
-     const lineMargin = 3;
+    const lineMargin = 3;
     final offset = lineWidgth / 2 + lineMargin;
     final arcRect = Offset(offset, offset) &
         Size(
