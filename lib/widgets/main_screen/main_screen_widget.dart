@@ -28,7 +28,7 @@ class _MainScreenWidgetnState extends State<MainScreenWidgetn> {
         index: _selectedTab,
         children: const [
           Text(
-            'Новости',
+            'Привет А',
           ),
           MovieListWidget(),
           Text(
